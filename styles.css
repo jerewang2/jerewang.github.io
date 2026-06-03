@@ -73,13 +73,6 @@ a {
   color: var(--text);
 }
 
-.logo::after {
-  content: " / 教";
-  color: var(--accent);
-  font-size: 0.85rem;
-  margin-left: 6px;
-}
-
 .nav-links {
   display: flex;
   gap: 24px;
@@ -338,10 +331,19 @@ h3 {
 }
 
 @media (max-width: 900px) {
-  .hero::after,
-  .hero::before {
-    opacity: 0.18;
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 42px;
   }
+
+  .hero-photo-wrap {
+    justify-content: flex-start;
+  }
+
+  .hero-photo {
+    width: min(280px, 72vw);
+  }
+}
 
   .cards,
   .contact {
@@ -374,4 +376,34 @@ h3 {
   h1 {
     font-size: clamp(3rem, 16vw, 4.8rem);
   }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.hero-copy {
+  max-width: 680px;
+}
+
+.hero-photo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(15px) translateY(30px);
+}
+
+.hero-photo {
+  width: min(350px, 72vw);
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.45),
+    0 0 0 12px rgba(239, 233, 220, 0.03);
 }
